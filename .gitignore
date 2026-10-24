@@ -29,6 +29,7 @@
 *.userprefs
 *.pidb
 *.booproj
+*.slnx
 
 # =========================
 # macOS
