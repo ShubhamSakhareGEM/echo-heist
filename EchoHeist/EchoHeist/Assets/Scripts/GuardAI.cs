@@ -55,6 +55,18 @@ public class GuardAI : MonoBehaviour
 
     private bool hasPath;
 
+    public string CurrentStateName => currentState.ToString();
+
+    public Vector2 LastKnownPlayerPosition =>
+        lastKnownPlayerPosition;
+
+    public bool HasSeenPlayer { get; private set; }
+
+    public bool HasActivePath => hasPath;
+
+    public int RemainingPathNodes =>
+        Mathf.Max(0, currentPath.Count - pathIndex);
+
     private void Start()
     {
         currentPatrolTarget = pointA;
@@ -92,6 +104,7 @@ public class GuardAI : MonoBehaviour
         if (guardVision.CanSeePlayer)
         {
             lastKnownPlayerPosition = player.position;
+            HasSeenPlayer = true;
 
             ChangeState(GuardState.Chase);
 

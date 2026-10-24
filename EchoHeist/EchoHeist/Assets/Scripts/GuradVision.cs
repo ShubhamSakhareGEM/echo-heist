@@ -62,7 +62,7 @@ public class GuardVision : MonoBehaviour
         return wallHit.collider == null;
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
