@@ -15,6 +15,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private GuardVision guardVision;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
+    private GameManager gameManager;
 
     [Header("Navigation")]
     [SerializeField] private NavNode[] navNodes;
@@ -57,10 +58,15 @@ public class GuardAI : MonoBehaviour
     private void Start()
     {
         currentPatrolTarget = pointA;
+        gameManager =FindFirstObjectByType<GameManager>();
     }
 
     private void Update()
     {
+        if (gameManager.GameEnded)
+        {
+            return;
+        }
         switch (currentState)
         {
             case GuardState.Patrol:
