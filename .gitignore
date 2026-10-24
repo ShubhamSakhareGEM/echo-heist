@@ -1,0 +1,53 @@
+# =========================
+# Unity generated folders
+# =========================
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Build output
+[Bb]uild/
+[Bb]uilds/
+
+# =========================
+# IDE / editor files
+# =========================
+
+.vscode/
+.idea/
+
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# =========================
+# macOS
+# =========================
+
+.DS_Store
+
+# =========================
+# Unity crash / generated files
+# =========================
+
+sysinfo.txt
+crashlytics-build.properties
+
+# =========================
+# Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+secrets.json
