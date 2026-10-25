@@ -2,12 +2,33 @@ using UnityEngine;
 
 public class GuardVision : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Transform player;
+    [SerializeField] private Transform visionOrigin;
+
+    [Header("Vision")]
     [SerializeField] private float viewDistance = 5f;
-    [SerializeField] private float viewAngle = 90f;
+
+    [SerializeField]
+    [Range(1f, 180f)]
+    private float viewAngle = 90f;
+
     [SerializeField] private LayerMask obstacleMask;
 
     public bool CanSeePlayer { get; private set; }
+
+    // Exposed for the visual flashlight cone.
+    public float ViewDistance => viewDistance;
+    public float ViewAngle => viewAngle;
+    public LayerMask ObstacleMask => obstacleMask;
+
+    public Vector2 OriginPosition =>
+        visionOrigin != null
+            ? (Vector2)visionOrigin.position
+            : (Vector2)transform.position;
+
+    public Vector2 Forward =>
+        transform.up;
 
     private bool wasSeeingPlayer;
 
@@ -30,55 +51,90 @@ public class GuardVision : MonoBehaviour
 
     private bool CheckForPlayer()
     {
-        Vector2 directionToPlayer =
-            (player.position - transform.position).normalized;
+        if (player == null)
+        {
+            return false;
+        }
+
+        Vector2 origin = OriginPosition;
+
+        Vector2 toPlayer =
+            (Vector2)player.position - origin;
 
         float distanceToPlayer =
-            Vector2.Distance(transform.position, player.position);
+            toPlayer.magnitude;
 
         if (distanceToPlayer > viewDistance)
         {
             return false;
         }
 
+        if (distanceToPlayer <= 0.01f)
+        {
+            return true;
+        }
+
+        Vector2 directionToPlayer =
+            toPlayer.normalized;
+
         float dot =
-            Vector2.Dot(transform.up, directionToPlayer);
+            Vector2.Dot(
+                Forward,
+                directionToPlayer
+            );
 
         float minimumDot =
-            Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad);
+            Mathf.Cos(
+                viewAngle * 0.5f *
+                Mathf.Deg2Rad
+            );
 
         if (dot < minimumDot)
         {
             return false;
         }
 
-        RaycastHit2D wallHit = Physics2D.Raycast(
-            transform.position,
-            directionToPlayer,
-            distanceToPlayer,
-            obstacleMask
-        );
+        RaycastHit2D wallHit =
+            Physics2D.Raycast(
+                origin,
+                directionToPlayer,
+                distanceToPlayer,
+                obstacleMask
+            );
 
         return wallHit.collider == null;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Vector2 origin =
+            visionOrigin != null
+                ? (Vector2)visionOrigin.position
+                : (Vector2)transform.position;
 
         Vector3 leftDirection =
-            Quaternion.Euler(0, 0, viewAngle / 2f) * transform.up;
+            Quaternion.Euler(
+                0f,
+                0f,
+                viewAngle * 0.5f
+            ) * transform.up;
 
         Vector3 rightDirection =
-            Quaternion.Euler(0, 0, -viewAngle / 2f) * transform.up;
+            Quaternion.Euler(
+                0f,
+                0f,
+                -viewAngle * 0.5f
+            ) * transform.up;
+
+        Gizmos.color = Color.yellow;
 
         Gizmos.DrawRay(
-            transform.position,
+            origin,
             leftDirection * viewDistance
         );
 
         Gizmos.DrawRay(
-            transform.position,
+            origin,
             rightDirection * viewDistance
         );
     }

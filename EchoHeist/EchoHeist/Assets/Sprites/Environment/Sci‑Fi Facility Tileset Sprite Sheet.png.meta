@@ -1,0 +1,1404 @@
+fileFormatVersion: 2
+guid: 83af6a35f9ad04e93849a17a5d550fa4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5890315750008621264
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_0"
+  - first:
+      213: 1738180197414868142
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_1"
+  - first:
+      213: -3964072305831021825
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_2"
+  - first:
+      213: 9099003869343700085
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_3"
+  - first:
+      213: -2670494654382199526
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_4"
+  - first:
+      213: 3577150494329607875
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_5"
+  - first:
+      213: -6279995518958474997
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_6"
+  - first:
+      213: 393303600350151463
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_7"
+  - first:
+      213: 978651704250421184
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_8"
+  - first:
+      213: -1429170507547523335
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_9"
+  - first:
+      213: 2709634922378557736
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_10"
+  - first:
+      213: 8700787373709613127
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_11"
+  - first:
+      213: -8510447021559501123
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_12"
+  - first:
+      213: 1939763445413131222
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_13"
+  - first:
+      213: 3138475060678031281
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_14"
+  - first:
+      213: 1053459057478921488
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_15"
+  - first:
+      213: 1909683629590840273
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_16"
+  - first:
+      213: -1529479545661052197
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_17"
+  - first:
+      213: 3953972337487036264
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_18"
+  - first:
+      213: 2417108272548270940
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_19"
+  - first:
+      213: -6957188804725920765
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_20"
+  - first:
+      213: 300380007968077038
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_21"
+  - first:
+      213: 2596777532486048815
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_22"
+  - first:
+      213: 2648825569291339098
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_23"
+  - first:
+      213: -2201766705591632602
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_24"
+  - first:
+      213: 4369248084142719734
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_25"
+  - first:
+      213: -6493350527942958361
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_26"
+  - first:
+      213: -2615286592441059411
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_27"
+  - first:
+      213: 289836691881219843
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_28"
+  - first:
+      213: -5893888386856015021
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_29"
+  - first:
+      213: -52484378217610694
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_30"
+  - first:
+      213: 1334381212720290498
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_31"
+  - first:
+      213: -732402782212483680
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_32"
+  - first:
+      213: -6254658222158959921
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_33"
+  - first:
+      213: 6142915113927248828
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_34"
+  - first:
+      213: -8474471622535305019
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_35"
+  - first:
+      213: -6855354929422981343
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_36"
+  - first:
+      213: 6412232351280790564
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_37"
+  - first:
+      213: -8351656854883418593
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_38"
+  - first:
+      213: 8111226368021616004
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_39"
+  - first:
+      213: -3078810866189537743
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_40"
+  - first:
+      213: 8232638023603607269
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_41"
+  - first:
+      213: 7943243814032463210
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_42"
+  - first:
+      213: 5412586244151222295
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_43"
+  - first:
+      213: 2690282751021690099
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_44"
+  - first:
+      213: -5502237415622484071
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_45"
+  - first:
+      213: 4264618835165646344
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_46"
+  - first:
+      213: 5026835375059119741
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_47"
+  - first:
+      213: -2828801315624487700
+    second: "Sci\u2011Fi Facility Tileset Sprite Sheet_48"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tile
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 937
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8072667fa9eb150800000000000000
+      internalID: 5890315750008621264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_1"
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 927
+        width: 282
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea418862ea14f1810800000000000000
+      internalID: 1738180197414868142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InnerWall
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 936
+        width: 260
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff27afa8d39ccf8c0800000000000000
+      internalID: -3964072305831021825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OuterWall
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 936
+        width: 238
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574d2228fc7264e70800000000000000
+      internalID: 9099003869343700085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 755
+        width: 5
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d28feb24f70fad0800000000000000
+      internalID: -2670494654382199526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_5"
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 733
+        width: 393
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c611aa0c6794a130800000000000000
+      internalID: 3577150494329607875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_6"
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 733
+        width: 238
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b096f6d2959f8d8a0800000000000000
+      internalID: -6279995518958474997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_7"
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 714
+        width: 327
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723c0cb6a8b457500800000000000000
+      internalID: 393303600350151463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_8"
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 735
+        width: 170
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf4da63a8ed49d00800000000000000
+      internalID: 978651704250421184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SideWall
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 508
+        width: 95
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f64a26def09a2ce0800000000000000
+      internalID: -1429170507547523335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_10"
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 495
+        width: 160
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829fd5b0b9e8a9520800000000000000
+      internalID: 2709634922378557736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_11"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 493
+        width: 230
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7485a2484086fb870800000000000000
+      internalID: 8700787373709613127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_12"
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 493
+        width: 238
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe2a203681d4e980800000000000000
+      internalID: -8510447021559501123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_13"
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 482
+        width: 315
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d33328839c6bea10800000000000000
+      internalID: 1939763445413131222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitZone
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 94
+        width: 405
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7f228707a1e8b20800000000000000
+      internalID: 3138475060678031281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_15"
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 19
+        width: 393
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01de27a6e63ae9e00800000000000000
+      internalID: 1053459057478921488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_16"
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 240
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d30427a42f808a10800000000000000
+      internalID: 1909683629590840273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artifact
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 22
+        width: 293
+        height: 432
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdaa5ade47236cae0800000000000000
+      internalID: -1529479545661052197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_18"
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 226
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fb2a354e45fd630800000000000000
+      internalID: 3953972337487036264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_19"
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 119
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53d5e0ea2b4b8120800000000000000
+      internalID: 2417108272548270940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_20"
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 101
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30cacf294a9137f90800000000000000
+      internalID: -6957188804725920765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_21"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 5
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4f098960a2b2400800000000000000
+      internalID: 300380007968077038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_22"
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 97
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2cdb80586b990420800000000000000
+      internalID: 2596777532486048815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_23"
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 79
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55059932d482c420800000000000000
+      internalID: 2648825569291339098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_24"
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 79
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62dbde2c8d0c171e0800000000000000
+      internalID: -2201766705591632602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_25"
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 79
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f202e6bbffa2ac30800000000000000
+      internalID: 4369248084142719734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_26"
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 85
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e26ddb191cf2e5a0800000000000000
+      internalID: -6493350527942958361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_27"
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 77
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da775b753b2a4bbd0800000000000000
+      internalID: -2615286592441059411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_28"
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 79
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30754768fe4b50400800000000000000
+      internalID: 289836691881219843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_29"
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 61
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ba5a34db3b43ea0800000000000000
+      internalID: -5893888386856015021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_30"
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 61
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3205107cb9854ff0800000000000000
+      internalID: -52484378217610694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_31"
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 63
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cad523a4aca48210800000000000000
+      internalID: 1334381212720290498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_32"
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 61
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a597bdcc8bf5d5f0800000000000000
+      internalID: -732402782212483680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_33"
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 49
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca2dbc4c7df239a0800000000000000
+      internalID: -6254658222158959921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_34"
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 67
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb0303efb4004550800000000000000
+      internalID: 6142915113927248828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_35"
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 45
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8a7af75f0a46a80800000000000000
+      internalID: -8474471622535305019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_36"
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 51
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127258e4303ecd0a0800000000000000
+      internalID: -6855354929422981343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_37"
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 55
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42cfb5b9953dcf850800000000000000
+      internalID: 6412232351280790564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_38"
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 46
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1eb7b6e654f81c80800000000000000
+      internalID: -8351656854883418593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_39"
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 46
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485d5b6186dd09070800000000000000
+      internalID: 8111226368021616004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_40"
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 39
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ee82654ddd545d0800000000000000
+      internalID: -3078810866189537743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_41"
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 31
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e654410aa4304270800000000000000
+      internalID: 8232638023603607269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_42"
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 31
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6559bbe9221c3e60800000000000000
+      internalID: 7943243814032463210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_43"
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 31
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710acce038e5d1b40800000000000000
+      internalID: 5412586244151222295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_44"
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc220888edc55520800000000000000
+      internalID: 2690282751021690099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_45"
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 0
+        width: 65
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f55fbf83024a3b0800000000000000
+      internalID: -5502237415622484071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_46"
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 0
+        width: 100
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e0d745c38fe2b30800000000000000
+      internalID: 4264618835165646344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_47"
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 0
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e24cae328e2c540800000000000000
+      internalID: 5026835375059119741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_48"
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 17
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce47b0ae0341eb8d0800000000000000
+      internalID: -2828801315624487700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 072e6f52a305049f59b709c7c9d83970
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Artifact: -1529479545661052197
+      ExitZone: 3138475060678031281
+      InnerWall: -3964072305831021825
+      OuterWall: 9099003869343700085
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_1": 1738180197414868142
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_10": 2709634922378557736
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_11": 8700787373709613127
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_12": -8510447021559501123
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_13": 1939763445413131222
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_15": 1053459057478921488
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_16": 1909683629590840273
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_18": 3953972337487036264
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_19": 2417108272548270940
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_20": -6957188804725920765
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_21": 300380007968077038
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_22": 2596777532486048815
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_23": 2648825569291339098
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_24": -2201766705591632602
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_25": 4369248084142719734
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_26": -6493350527942958361
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_27": -2615286592441059411
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_28": 289836691881219843
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_29": -5893888386856015021
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_30": -52484378217610694
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_31": 1334381212720290498
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_32": -732402782212483680
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_33": -6254658222158959921
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_34": 6142915113927248828
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_35": -8474471622535305019
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_36": -6855354929422981343
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_37": 6412232351280790564
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_38": -8351656854883418593
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_39": 8111226368021616004
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_4": -2670494654382199526
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_40": -3078810866189537743
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_41": 8232638023603607269
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_42": 7943243814032463210
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_43": 5412586244151222295
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_44": 2690282751021690099
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_45": -5502237415622484071
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_46": 4264618835165646344
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_47": 5026835375059119741
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_48": -2828801315624487700
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_5": 3577150494329607875
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_6": -6279995518958474997
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_7": 393303600350151463
+      "Sci\u2011Fi Facility Tileset Sprite Sheet_8": 978651704250421184
+      SideWall: -1429170507547523335
+      Tile: 5890315750008621264
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
