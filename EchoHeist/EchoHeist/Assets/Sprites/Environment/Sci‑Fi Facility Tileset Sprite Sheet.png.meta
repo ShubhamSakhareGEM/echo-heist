@@ -367,13 +367,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_5"
+      name: TopWall
       rect:
         serializedVersion: 2
-        x: 28
-        y: 733
-        width: 393
-        height: 177
+        x: 57
+        y: 741
+        width: 357
+        height: 149
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,13 +411,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_7"
+      name: InnerWall2
       rect:
         serializedVersion: 2
-        x: 691
-        y: 714
-        width: 327
-        height: 184
+        x: 716
+        y: 742
+        width: 296
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -477,13 +477,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sci\u2011Fi Facility Tileset Sprite Sheet_10"
+      name: Partition
       rect:
         serializedVersion: 2
-        x: 197
-        y: 495
-        width: 160
-        height: 214
+        x: 254
+        y: 508
+        width: 98
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1351,9 +1351,10 @@ TextureImporter:
       Artifact: -1529479545661052197
       ExitZone: 3138475060678031281
       InnerWall: -3964072305831021825
+      InnerWall2: 393303600350151463
       OuterWall: 9099003869343700085
+      Partition: 2709634922378557736
       "Sci\u2011Fi Facility Tileset Sprite Sheet_1": 1738180197414868142
-      "Sci\u2011Fi Facility Tileset Sprite Sheet_10": 2709634922378557736
       "Sci\u2011Fi Facility Tileset Sprite Sheet_11": 8700787373709613127
       "Sci\u2011Fi Facility Tileset Sprite Sheet_12": -8510447021559501123
       "Sci\u2011Fi Facility Tileset Sprite Sheet_13": 1939763445413131222
@@ -1391,12 +1392,11 @@ TextureImporter:
       "Sci\u2011Fi Facility Tileset Sprite Sheet_46": 4264618835165646344
       "Sci\u2011Fi Facility Tileset Sprite Sheet_47": 5026835375059119741
       "Sci\u2011Fi Facility Tileset Sprite Sheet_48": -2828801315624487700
-      "Sci\u2011Fi Facility Tileset Sprite Sheet_5": 3577150494329607875
       "Sci\u2011Fi Facility Tileset Sprite Sheet_6": -6279995518958474997
-      "Sci\u2011Fi Facility Tileset Sprite Sheet_7": 393303600350151463
       "Sci\u2011Fi Facility Tileset Sprite Sheet_8": 978651704250421184
       SideWall: -1429170507547523335
       Tile: 5890315750008621264
+      TopWall: 3577150494329607875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

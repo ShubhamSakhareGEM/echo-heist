@@ -6,83 +6,210 @@ public class GuardAI : MonoBehaviour
     private enum GuardState
     {
         Patrol,
+        AlertSearch,
         Chase,
         Search
     }
+
+    // =========================================================
+    // REFERENCES
+    // =========================================================
 
     [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private GuardVision guardVision;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
+    [SerializeField] private Transform artifact;
+
     private GameManager gameManager;
+
+    // =========================================================
+    // NAVIGATION
+    // =========================================================
 
     [Header("Navigation")]
     [SerializeField] private NavNode[] navNodes;
     [SerializeField] private LayerMask obstacleMask;
 
     [SerializeField] private float nodeReachDistance = 0.15f;
-
-    // Approximate radius of the guard.
-    // Prevents the guard's body from clipping through wall corners.
     [SerializeField] private float movementClearanceRadius = 0.28f;
-
-    // Rebuild A* only if the target has moved enough.
     [SerializeField] private float pathRebuildDistance = 0.5f;
+
+    // =========================================================
+    // MOVEMENT
+    // =========================================================
 
     [Header("Movement")]
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 3f;
     [SerializeField] private float arriveDistance = 0.1f;
 
+    // =========================================================
+    // PLAYER SEARCH
+    // =========================================================
+
     [Header("Search")]
     [SerializeField] private float searchDuration = 3f;
     [SerializeField] private float searchArrivalDistance = 0.3f;
+
+    // =========================================================
+    // ALERT SEARCH AFTER ARTIFACT THEFT
+    // =========================================================
+
+    [Header("Alert Search")]
+    [SerializeField] private float alertSearchSpeed = 2.4f;
+
+    // Time spent rotating/checking at each search node.
+    [SerializeField] private float alertCheckDuration = 1f;
+
+    // At 360 with a 1-second check, guard makes one full scan.
+    [SerializeField] private float alertLookTurnSpeed = 360f;
+
+    // Small pause after theft so guard visibly snaps attention
+    // toward the artifact before path movement begins.
+    [SerializeField] private float artifactReactionDuration = 0.35f;
+
+    // =========================================================
+    // STATE
+    // =========================================================
 
     private GuardState currentState = GuardState.Patrol;
 
     private Transform currentPatrolTarget;
 
     private Vector2 lastKnownPlayerPosition;
-
     private float searchTimer;
 
-    private List<NavNode> currentPath = new List<NavNode>();
+    // Artifact position is cached because the artifact object
+    // may disappear after collection.
+    private Vector2 artifactPosition;
+    private bool hasArtifactPosition;
+
+    // Ensures artifact theft triggers only once.
+    private bool artifactAlertTriggered;
+
+    // Alert-search state.
+    private int alertSearchNodeIndex;
+    private bool alertSweepInitialized;
+
+    private bool investigatingArtifact;
+    private float artifactReactionTimer;
+
+    private bool checkingAlertPoint;
+    private float alertCheckTimer;
+
+    // =========================================================
+    // A* PATH
+    // =========================================================
+
+    private List<NavNode> currentPath =
+        new List<NavNode>();
 
     private int pathIndex;
-
     private Vector2 currentDestination;
-
     private bool hasPath;
 
-    public string CurrentStateName => currentState.ToString();
+    // =========================================================
+    // DEBUG INFORMATION
+    // =========================================================
+
+    public string CurrentStateName =>
+        currentState.ToString();
 
     public Vector2 LastKnownPlayerPosition =>
         lastKnownPlayerPosition;
 
     public bool HasSeenPlayer { get; private set; }
 
-    public bool HasActivePath => hasPath;
+    public bool HasActivePath =>
+        hasPath;
 
     public int RemainingPathNodes =>
-        Mathf.Max(0, currentPath.Count - pathIndex);
+        Mathf.Max(
+            0,
+            currentPath.Count - pathIndex
+        );
+
+    // =========================================================
+    // UNITY
+    // =========================================================
 
     private void Start()
     {
         currentPatrolTarget = pointA;
-        gameManager =FindFirstObjectByType<GameManager>();
+
+        gameManager =
+            FindFirstObjectByType<GameManager>();
+
+        if (artifact != null)
+        {
+            artifactPosition =
+                artifact.position;
+
+            hasArtifactPosition = true;
+        }
+        else
+        {
+            Debug.LogWarning(
+                "GuardAI: Artifact reference is not assigned."
+            );
+        }
     }
 
     private void Update()
     {
-        if (gameManager.GameEnded)
+        if (gameManager == null ||
+            gameManager.GameEnded)
         {
             return;
         }
+
+        // =====================================================
+        // ARTIFACT THEFT EVENT
+        // =====================================================
+
+        if (gameManager.HasArtifact &&
+            !artifactAlertTriggered)
+        {
+            artifactAlertTriggered = true;
+
+            /*
+             * If the guard already sees the thief,
+             * chase immediately.
+             *
+             * Otherwise immediately turn toward
+             * the stolen artifact and investigate.
+             */
+            if (guardVision.CanSeePlayer)
+            {
+                lastKnownPlayerPosition =
+                    player.position;
+
+                HasSeenPlayer = true;
+
+                ChangeState(
+                    GuardState.Chase
+                );
+            }
+            else
+            {
+                BeginArtifactInvestigation();
+            }
+        }
+
+        // =====================================================
+        // STATE UPDATE
+        // =====================================================
+
         switch (currentState)
         {
             case GuardState.Patrol:
                 Patrol();
+                break;
+
+            case GuardState.AlertSearch:
+                AlertSearch();
                 break;
 
             case GuardState.Chase:
@@ -103,18 +230,36 @@ public class GuardAI : MonoBehaviour
     {
         if (guardVision.CanSeePlayer)
         {
-            lastKnownPlayerPosition = player.position;
+            lastKnownPlayerPosition =
+                player.position;
+
             HasSeenPlayer = true;
 
-            ChangeState(GuardState.Chase);
+            ChangeState(
+                GuardState.Chase
+            );
 
             return;
         }
 
-        bool reachedTarget = MoveUsingPath(
-            currentPatrolTarget.position,
-            patrolSpeed
-        );
+        // Safety fallback:
+        // once artifact is gone, never return to relaxed A/B patrol.
+        if (gameManager.HasArtifact)
+        {
+            StartAlertSweepFromFirstNode();
+
+            ChangeState(
+                GuardState.AlertSearch
+            );
+
+            return;
+        }
+
+        bool reachedTarget =
+            MoveUsingPath(
+                currentPatrolTarget.position,
+                patrolSpeed
+            );
 
         if (reachedTarget)
         {
@@ -128,6 +273,438 @@ public class GuardAI : MonoBehaviour
     }
 
     // =========================================================
+    // ARTIFACT INVESTIGATION
+    // =========================================================
+
+    private void BeginArtifactInvestigation()
+    {
+        ClearPath();
+
+        checkingAlertPoint = false;
+        alertCheckTimer = 0f;
+
+        alertSweepInitialized = false;
+
+        if (!hasArtifactPosition)
+        {
+            investigatingArtifact = false;
+
+            StartAlertSweepFromFirstNode();
+
+            ChangeState(
+                GuardState.AlertSearch
+            );
+
+            return;
+        }
+
+        investigatingArtifact = true;
+
+        /*
+         * Hold this direction briefly before moving.
+         * This makes the guard visibly react to the theft.
+         */
+        artifactReactionTimer =
+            artifactReactionDuration;
+
+        FacePosition(
+            artifactPosition
+        );
+
+        ChangeState(
+            GuardState.AlertSearch
+        );
+
+        Debug.Log(
+            "ARTIFACT STOLEN - GUARD TURNING TOWARD ARTIFACT"
+        );
+    }
+
+    // =========================================================
+    // ALERT SEARCH
+    // =========================================================
+
+    private void AlertSearch()
+    {
+        // Player becomes visible during any alert-search phase.
+        if (guardVision.CanSeePlayer)
+        {
+            lastKnownPlayerPosition =
+                player.position;
+
+            HasSeenPlayer = true;
+
+            checkingAlertPoint = false;
+
+            ChangeState(
+                GuardState.Chase
+            );
+
+            return;
+        }
+
+        // =====================================================
+        // PHASE 1:
+        // CHECK THE STOLEN ARTIFACT LOCATION
+        // =====================================================
+
+        if (investigatingArtifact)
+        {
+            InvestigateArtifactLocation();
+            return;
+        }
+
+        // =====================================================
+        // PHASE 2:
+        // SYSTEMATIC NODE SWEEP
+        // =====================================================
+
+        if (navNodes == null ||
+            navNodes.Length == 0)
+        {
+            return;
+        }
+
+        if (!alertSweepInitialized)
+        {
+            StartAlertSweepFromFirstNode();
+        }
+
+        // Stop at each node and scan around.
+        if (checkingAlertPoint)
+        {
+            CheckCurrentLocation();
+
+            if (alertCheckTimer <= 0f)
+            {
+                checkingAlertPoint = false;
+
+                MoveToNextAlertNode();
+            }
+
+            return;
+        }
+
+        if (alertSearchNodeIndex < 0 ||
+            alertSearchNodeIndex >= navNodes.Length)
+        {
+            alertSearchNodeIndex = 0;
+        }
+
+        NavNode targetNode =
+            navNodes[alertSearchNodeIndex];
+
+        if (targetNode == null)
+        {
+            MoveToNextAlertNode();
+            return;
+        }
+
+        bool reachedNode =
+            MoveUsingPath(
+                targetNode.Position,
+                alertSearchSpeed
+            );
+
+        if (reachedNode)
+        {
+            StartLocationCheck();
+
+            Debug.Log(
+                "GUARD CHECKING NODE: " +
+                targetNode.name
+            );
+        }
+    }
+
+    // =========================================================
+    // CHECK STOLEN ARTIFACT LOCATION
+    // =========================================================
+
+    private void InvestigateArtifactLocation()
+    {
+        // First visibly react to the theft.
+        if (artifactReactionTimer > 0f)
+        {
+            artifactReactionTimer -= Time.deltaTime;
+
+            FacePosition(artifactPosition);
+
+            return;
+        }
+
+        // Already reached artifact area.
+        // Stop and scan around.
+        if (checkingAlertPoint)
+        {
+            CheckCurrentLocation();
+
+            if (alertCheckTimer <= 0f)
+            {
+                checkingAlertPoint = false;
+                investigatingArtifact = false;
+
+                StartAlertSweepFromFirstNode();
+
+                Debug.Log(
+                    "ARTIFACT CHECK COMPLETE - STARTING FULL SWEEP"
+                );
+            }
+
+            return;
+        }
+
+        bool reachedArtifact;
+
+        // IMPORTANT:
+        // If artifact can be reached directly,
+        // immediately reverse direction and go there.
+        if (HasClearMovementPath(
+                transform.position,
+                artifactPosition))
+        {
+            ClearPath();
+
+            MoveDirect(
+                artifactPosition,
+                alertSearchSpeed
+            );
+
+            reachedArtifact =
+                Vector2.Distance(
+                    transform.position,
+                    artifactPosition
+                ) <= arriveDistance;
+        }
+        else
+        {
+            // Only use A* if a wall actually blocks
+            // direct movement to the artifact.
+            reachedArtifact =
+                MoveUsingPath(
+                    artifactPosition,
+                    alertSearchSpeed
+                );
+        }
+
+        if (reachedArtifact)
+        {
+            StartLocationCheck();
+
+            Debug.Log(
+                "GUARD CHECKING STOLEN ARTIFACT LOCATION"
+            );
+        }
+    }
+
+    // =========================================================
+    // START ALERT SWEEP FROM ARRAY ELEMENT 0
+    // =========================================================
+
+    private void StartAlertSweepFromFirstNode()
+    {
+        if (navNodes == null ||
+            navNodes.Length == 0)
+        {
+            return;
+        }
+
+        alertSearchNodeIndex = 0;
+
+        alertSweepInitialized = true;
+
+        checkingAlertPoint = false;
+
+        ClearPath();
+    }
+
+    // =========================================================
+    // RESUME AFTER LOSING PLAYER
+    // =========================================================
+
+    private void ResumeAlertSearchAfterLastKnownPosition()
+    {
+        investigatingArtifact = false;
+        checkingAlertPoint = false;
+
+        if (navNodes == null ||
+            navNodes.Length == 0)
+        {
+            return;
+        }
+
+        /*
+         * Find which search node is closest to where
+         * the player disappeared.
+         *
+         * That area has effectively just been searched.
+         */
+        int lastCheckedNodeIndex =
+            FindClosestNavNodeIndexToPosition(
+                lastKnownPlayerPosition
+            );
+
+        /*
+         * Continue from the NEXT node in the Inspector
+         * search order.
+         *
+         * Example:
+         *
+         * Array:
+         * N1, N4, N5, N10, ..., N2
+         *
+         * Player disappears near N1:
+         *
+         * N1 has effectively been checked,
+         * so next target becomes N4.
+         */
+        alertSearchNodeIndex =
+            lastCheckedNodeIndex + 1;
+
+        if (alertSearchNodeIndex >=
+            navNodes.Length)
+        {
+            alertSearchNodeIndex = 0;
+        }
+
+        alertSweepInitialized = true;
+
+        ClearPath();
+
+        ChangeState(
+            GuardState.AlertSearch
+        );
+
+        if (navNodes[alertSearchNodeIndex] != null)
+        {
+            Debug.Log(
+                "RESUMING ALERT SEARCH AT: " +
+                navNodes[alertSearchNodeIndex].name
+            );
+        }
+    }
+
+    // =========================================================
+    // CHECK A SEARCH LOCATION
+    // =========================================================
+
+    private void StartLocationCheck()
+    {
+        ClearPath();
+
+        checkingAlertPoint = true;
+
+        alertCheckTimer =
+            alertCheckDuration;
+    }
+
+    private void CheckCurrentLocation()
+    {
+        alertCheckTimer -=
+            Time.deltaTime;
+
+        /*
+         * Rotate while stationary.
+         * GuardVision uses transform.up,
+         * so the flashlight/FOV also scans around.
+         */
+        transform.Rotate(
+            0f,
+            0f,
+            alertLookTurnSpeed *
+            Time.deltaTime
+        );
+    }
+
+    // =========================================================
+    // NEXT ALERT NODE
+    // =========================================================
+
+    private void MoveToNextAlertNode()
+    {
+        if (navNodes == null ||
+            navNodes.Length == 0)
+        {
+            return;
+        }
+
+        /*
+         * Search follows the exact Inspector array order.
+         *
+         * With your current setup:
+         *
+         * N1
+         * N4
+         * N5
+         * N10
+         * N9
+         * N11
+         * N7
+         * N6
+         * N8
+         * N3
+         * N2
+         * then back to N1.
+         */
+
+        alertSearchNodeIndex++;
+
+        if (alertSearchNodeIndex >=
+            navNodes.Length)
+        {
+            alertSearchNodeIndex = 0;
+        }
+
+        ClearPath();
+    }
+
+    // =========================================================
+    // FIND NODE NEAREST TO A SPECIFIC POSITION
+    // =========================================================
+
+    private int FindClosestNavNodeIndexToPosition(
+        Vector2 position)
+    {
+        if (navNodes == null ||
+            navNodes.Length == 0)
+        {
+            return 0;
+        }
+
+        int closestIndex = 0;
+
+        float closestDistance =
+            float.PositiveInfinity;
+
+        for (int i = 0;
+             i < navNodes.Length;
+             i++)
+        {
+            if (navNodes[i] == null)
+            {
+                continue;
+            }
+
+            float distance =
+                Vector2.Distance(
+                    position,
+                    navNodes[i].Position
+                );
+
+            if (distance <
+                closestDistance)
+            {
+                closestDistance =
+                    distance;
+
+                closestIndex = i;
+            }
+        }
+
+        return closestIndex;
+    }
+
+    // =========================================================
     // CHASE
     // =========================================================
 
@@ -135,15 +712,20 @@ public class GuardAI : MonoBehaviour
     {
         if (!guardVision.CanSeePlayer)
         {
-            ChangeState(GuardState.Search);
+            ChangeState(
+                GuardState.Search
+            );
+
             return;
         }
 
-        // Continually remember the player's latest visible position.
-        lastKnownPlayerPosition = player.position;
+        // Remember latest visible position.
+        lastKnownPlayerPosition =
+            player.position;
 
-        // If the guard can physically run directly toward the player,
-        // do that instead of unnecessarily using navigation nodes.
+        HasSeenPlayer = true;
+
+        // Direct chase if no wall blocks movement.
         if (HasClearMovementPath(
                 transform.position,
                 player.position))
@@ -157,8 +739,8 @@ public class GuardAI : MonoBehaviour
         }
         else
         {
-            // A wall blocks the direct route.
-            // Use A* to navigate around it.
+            // Wall blocks direct route.
+            // Navigate with A*.
             MoveUsingPath(
                 player.position,
                 chaseSpeed
@@ -167,17 +749,22 @@ public class GuardAI : MonoBehaviour
     }
 
     // =========================================================
-    // SEARCH
+    // SEARCH LAST KNOWN PLAYER POSITION
     // =========================================================
 
     private void Search()
     {
-        // Player reappeared while searching.
+        // Player reappears.
         if (guardVision.CanSeePlayer)
         {
-            lastKnownPlayerPosition = player.position;
+            lastKnownPlayerPosition =
+                player.position;
 
-            ChangeState(GuardState.Chase);
+            HasSeenPlayer = true;
+
+            ChangeState(
+                GuardState.Chase
+            );
 
             return;
         }
@@ -188,8 +775,10 @@ public class GuardAI : MonoBehaviour
                 lastKnownPlayerPosition
             );
 
-        // Continue pursuing the exact last location
-        // where the player was seen.
+        /*
+         * Continue toward exact place where the
+         * player disappeared.
+         */
         if (distanceToLastKnownPosition >
             searchArrivalDistance)
         {
@@ -197,8 +786,6 @@ public class GuardAI : MonoBehaviour
                     transform.position,
                     lastKnownPlayerPosition))
             {
-                // No obstacle between guard and last seen location.
-                // Keep running naturally instead of returning to a node.
                 ClearPath();
 
                 MoveDirect(
@@ -208,8 +795,6 @@ public class GuardAI : MonoBehaviour
             }
             else
             {
-                // Direct movement is blocked.
-                // Use A* only when necessary.
                 MoveUsingPath(
                     lastKnownPlayerPosition,
                     chaseSpeed
@@ -219,13 +804,30 @@ public class GuardAI : MonoBehaviour
             return;
         }
 
-        // Guard has reached the last known player location.
-        // Stay here for a few seconds before giving up.
-        searchTimer -= Time.deltaTime;
+        // Reached the last known location.
+        searchTimer -=
+            Time.deltaTime;
 
         if (searchTimer <= 0f)
         {
-            ChangeState(GuardState.Patrol);
+            if (gameManager.HasArtifact)
+            {
+                /*
+                 * Player has disappeared and artifact
+                 * is already stolen.
+                 *
+                 * Treat this nearby node as checked,
+                 * then continue with the NEXT node
+                 * in the Inspector search sequence.
+                 */
+                ResumeAlertSearchAfterLastKnownPosition();
+            }
+            else
+            {
+                ChangeState(
+                    GuardState.Patrol
+                );
+            }
         }
     }
 
@@ -237,9 +839,6 @@ public class GuardAI : MonoBehaviour
         Vector2 destination,
         float speed)
     {
-        // Build/rebuild path if:
-        // 1. We do not currently have one.
-        // 2. The target has moved significantly.
         if (!hasPath ||
             Vector2.Distance(
                 currentDestination,
@@ -253,14 +852,14 @@ public class GuardAI : MonoBehaviour
         }
 
         // Follow navigation nodes.
-        if (pathIndex < currentPath.Count)
+        if (pathIndex <
+            currentPath.Count)
         {
             Vector2 nodePosition =
-                currentPath[pathIndex].Position;
+                currentPath[pathIndex]
+                    .Position;
 
-            // Safety check:
-            // even if the graph was configured incorrectly,
-            // never knowingly move through a wall.
+            // Safety check against wall clipping.
             if (!HasClearMovementPath(
                     transform.position,
                     nodePosition))
@@ -286,8 +885,8 @@ public class GuardAI : MonoBehaviour
             return false;
         }
 
-        // Navigation nodes are complete.
-        // Move from final node toward the exact destination.
+        // Final movement from last path node
+        // to the exact requested destination.
         if (!HasClearMovementPath(
                 transform.position,
                 destination))
@@ -304,14 +903,16 @@ public class GuardAI : MonoBehaviour
 
         return Vector2.Distance(
             transform.position,
-            destination) <= arriveDistance;
+            destination)
+            <= arriveDistance;
     }
 
     // =========================================================
     // BUILD A* PATH
     // =========================================================
 
-    private bool BuildPath(Vector2 destination)
+    private bool BuildPath(
+        Vector2 destination)
     {
         NavNode startNode =
             FindClosestReachableNode(
@@ -362,22 +963,18 @@ public class GuardAI : MonoBehaviour
             return false;
         }
 
-        currentDestination = destination;
+        currentDestination =
+            destination;
 
         /*
-         * A* includes the starting node.
+         * A* includes starting node.
          *
-         * We don't automatically send the guard backward to it.
-         * Instead, find the furthest node along the path that the
-         * guard can already reach directly.
-         *
-         * Example:
-         *
-         * N1 ---- Guard ---- N2 ---- N3
-         *
-         * If Guard can already reach N2, it skips N1.
+         * Skip unnecessary backwards movement by
+         * choosing the furthest path node that the
+         * guard can already directly reach.
          */
-        pathIndex = FindBestStartingPathIndex();
+        pathIndex =
+            FindBestStartingPathIndex();
 
         hasPath = true;
 
@@ -396,14 +993,8 @@ public class GuardAI : MonoBehaviour
             return 0;
         }
 
-        /*
-         * Try nodes from farther along the route back toward
-         * the start.
-         *
-         * The first node that has a physically clear route
-         * becomes the guard's next target.
-         */
-        for (int i = currentPath.Count - 1;
+        for (int i =
+                 currentPath.Count - 1;
              i >= 0;
              i--)
         {
@@ -415,8 +1006,6 @@ public class GuardAI : MonoBehaviour
             }
         }
 
-        // Should rarely happen because startNode was already
-        // confirmed reachable.
         return 0;
     }
 
@@ -432,16 +1021,14 @@ public class GuardAI : MonoBehaviour
         float closestDistance =
             float.PositiveInfinity;
 
-        foreach (NavNode node in navNodes)
+        foreach (NavNode node
+                 in navNodes)
         {
             if (node == null)
             {
                 continue;
             }
 
-            // Check whether an object the size of the guard
-            // can physically travel between this position
-            // and the node.
             if (!HasClearMovementPath(
                     position,
                     node.Position))
@@ -455,11 +1042,14 @@ public class GuardAI : MonoBehaviour
                     node.Position
                 );
 
-            if (distance < closestDistance)
+            if (distance <
+                closestDistance)
             {
-                closestDistance = distance;
+                closestDistance =
+                    distance;
 
-                closestNode = node;
+                closestNode =
+                    node;
             }
         }
 
@@ -509,15 +1099,17 @@ public class GuardAI : MonoBehaviour
             destination -
             (Vector2)transform.position;
 
-        if (direction.sqrMagnitude <= 0.0001f)
+        if (direction.sqrMagnitude <=
+            0.0001f)
         {
             return;
         }
 
         direction.Normalize();
 
-        // Guard's local UP direction represents forward.
-        transform.up = direction;
+        // Guard's local UP represents forward.
+        transform.up =
+            direction;
 
         transform.position =
             Vector2.MoveTowards(
@@ -525,6 +1117,27 @@ public class GuardAI : MonoBehaviour
                 destination,
                 speed * Time.deltaTime
             );
+    }
+
+    // =========================================================
+    // FACE POSITION WITHOUT MOVING
+    // =========================================================
+
+    private void FacePosition(
+        Vector2 target)
+    {
+        Vector2 direction =
+            target -
+            (Vector2)transform.position;
+
+        if (direction.sqrMagnitude <=
+            0.0001f)
+        {
+            return;
+        }
+
+        transform.up =
+            direction.normalized;
     }
 
     // =========================================================
@@ -539,11 +1152,13 @@ public class GuardAI : MonoBehaviour
             return;
         }
 
-        currentState = newState;
+        currentState =
+            newState;
 
         ClearPath();
 
-        if (currentState == GuardState.Search)
+        if (currentState ==
+            GuardState.Search)
         {
             searchTimer =
                 searchDuration;
@@ -581,7 +1196,8 @@ public class GuardAI : MonoBehaviour
             return;
         }
 
-        Gizmos.color = Color.magenta;
+        Gizmos.color =
+            Color.magenta;
 
         Vector3 previous =
             transform.position;
@@ -599,7 +1215,8 @@ public class GuardAI : MonoBehaviour
                 next
             );
 
-            previous = next;
+            previous =
+                next;
         }
 
         Gizmos.DrawLine(
